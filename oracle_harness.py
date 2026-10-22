@@ -85,7 +85,7 @@ def get_gpu_kind() -> str:
                 ["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"],
                 text=True, timeout=5
             ).strip().split("\n")[0]
-            for kind in ("B200", "H200", "H100", "A100", "V100"):
+            for kind in ("GB300", "B200", "H200", "H100", "A100", "V100"):
                 if kind in out:
                     get_gpu_kind._cached = kind
                     break

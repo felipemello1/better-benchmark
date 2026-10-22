@@ -37,7 +37,7 @@ def current_hardware_label():
     if not torch.cuda.is_available():
         return "CPU"
     name = torch.cuda.get_device_name()
-    for token in ("B200", "H200", "H100", "A100", "V100"):
+    for token in ("GB300", "B200", "H200", "H100", "A100", "V100"):
         if token in name:
             return token
     return name.replace(" ", "_")

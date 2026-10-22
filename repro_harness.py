@@ -982,7 +982,7 @@ def _detect_hardware() -> str:
             ["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"],
             text=True, timeout=5
         ).strip().split("\n")[0]
-        for kind in ("B200", "H200", "H100", "A100", "V100"):
+        for kind in ("GB300", "B200", "H200", "H100", "A100", "V100"):
             if kind in out:
                 return kind
         return out.replace(" ", "_")[:20]
