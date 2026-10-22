@@ -20,7 +20,7 @@ DEFAULT_LOCK_DIR = Path(os.environ.get("COMPILE_UTILS_GPU_LOCK_DIR", "/tmp/compi
 STALE_LOCK_GRACE_S = float(os.environ.get("COMPILE_UTILS_GPU_LOCK_STALE_GRACE_S", "5"))
 
 
-KNOWN_DEVICE_KINDS = ("B200", "H200", "H100", "A100", "V100")
+KNOWN_DEVICE_KINDS = ("GB300", "B200", "H200", "H100", "A100", "V100")
 
 
 def device_kind_from_name(name: str) -> str:
