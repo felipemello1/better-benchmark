@@ -1,0 +1,94 @@
+{
+  "points": [
+    {
+      "shape_hash": "04cf1bfc",
+      "models": {
+        "genai/infer/torchtitan_moe_gather_combine_k8_d4096": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[16384,8],"i64",{"gen":["perm",131072]}],
+        [[131072,4096],"bf16"],
+        [[16384,8],"f32"],
+        ["S",[131072]],
+        ["S",[16384,8,4096]]
+      ]
+    },
+    {
+      "shape_hash": "6e818104",
+      "models": {
+        "genai/infer/torchtitan_moe_gather_combine_k8_d4096": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[2048,8],"i64",{"gen":["perm",16384]}],
+        [[16384,4096],"bf16"],
+        [[2048,8],"f32"],
+        ["S",[16384]],
+        ["S",[2048,8,4096]]
+      ]
+    },
+    {
+      "shape_hash": "4679554f",
+      "models": {
+        "genai/infer/torchtitan_moe_gather_combine_k8_d4096": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[64,8],"i64",{"gen":["perm",512]}],
+        [[512,4096],"bf16"],
+        [[64,8],"f32"],
+        ["S",[512]],
+        ["S",[64,8,4096]]
+      ]
+    },
+    {
+      "shape_hash": "73b8c71f",
+      "models": {
+        "genai/infer/torchtitan_moe_gather_combine_k16_d7168": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[16384,16],"i64",{"gen":["perm",262144]}],
+        [[262144,7168],"bf16"],
+        [[16384,16],"f32"],
+        ["S",[262144]],
+        ["S",[16384,16,7168]]
+      ]
+    },
+    {
+      "shape_hash": "1e976ccd",
+      "models": {
+        "genai/infer/torchtitan_moe_gather_combine_k16_d7168": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[2048,16],"i64",{"gen":["perm",32768]}],
+        [[32768,7168],"bf16"],
+        [[2048,16],"f32"],
+        ["S",[32768]],
+        ["S",[2048,16,7168]]
+      ]
+    },
+    {
+      "shape_hash": "ca614918",
+      "models": {
+        "genai/infer/torchtitan_moe_gather_combine_k16_d7168": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[64,16],"i64",{"gen":["perm",1024]}],
+        [[1024,7168],"bf16"],
+        [[64,16],"f32"],
+        ["S",[1024]],
+        ["S",[64,16,7168]]
+      ]
+    }
+  ]
+}

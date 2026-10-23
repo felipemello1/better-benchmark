@@ -1,0 +1,41 @@
+{
+  "schema_version": 2,
+  "inputs": [
+    [[16384,16],"i64",{"n":"arg0_1","gen":["index",0,262144],"x":{"constraint_source":"graph_inference","observed":{"min":0,"max":262143,"n_unique":262144,"numel":262144,"sorted":false,"n_runs":262144}}}],
+    [[262144,7168],"bf16",{"n":"arg1_1"}]
+  ],
+  "outputs": [
+    [[16384,7168],"bf16",{"n":"output_0"}]
+  ],
+  "tensor_attrs": {},
+  "graph": "full_graph_000.py",
+  "source": {
+    "kind": "microbenchmark",
+    "suite": "genai",
+    "mode": "infer",
+    "model": "torchtitan_moe_dispatch_bwd_sum_k16_d7168",
+    "graph": "full_graph_000.py"
+  },
+  "node_accounting": {
+    "total_call_functions": 6,
+    "counts": {
+      "fusible_in_partition": 6,
+      "fusible_unpartitioned": 0,
+      "non_fusible": 0
+    },
+    "ops": {
+      "fusible_in_partition": {
+        "aten.index.Tensor": 1,
+        "aten.reshape.default": 2,
+        "aten.sum.dim_IntList": 1,
+        "prims.convert_element_type.default": 2
+      },
+      "fusible_unpartitioned": {},
+      "non_fusible": {}
+    }
+  },
+  "replay_dependencies": {
+    "schema_version": 1
+  },
+  "roundtrip": "ok"
+}

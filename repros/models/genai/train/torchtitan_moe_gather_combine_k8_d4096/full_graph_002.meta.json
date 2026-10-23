@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "inputs": [
+    [[4096,8],"i64",{"n":"primals_1","gen":["index",0,32768],"x":{"constraint_source":"graph_inference","observed":{"min":0,"max":32767,"n_unique":32768,"numel":32768,"sorted":false,"n_runs":32768}}}],
+    [[32768,4096],"bf16",{"n":"primals_2"}],
+    [[4096,8],"f32",{"n":"primals_3"}]
+  ],
+  "outputs": [
+    [[4096,4096],"bf16",{"n":"output_0"}],
+    [[32768,4096],"bf16",{"n":"output_1"}],
+    [[4096,8],"f32",{"n":"output_2"}],
+    [[32768],"i64",{"n":"output_3","gen":["index",0,32768],"x":{"constraint_source":"dtype_shape_default"}}]
+  ],
+  "tensor_attrs": {},
+  "graph": "full_graph_002.py",
+  "source": {
+    "kind": "microbenchmark",
+    "suite": "genai",
+    "mode": "train",
+    "model": "torchtitan_moe_gather_combine_k8_d4096",
+    "graph": "full_graph_002.py"
+  },
+  "node_accounting": {
+    "total_call_functions": 8,
+    "counts": {
+      "fusible_in_partition": 8,
+      "fusible_unpartitioned": 0,
+      "non_fusible": 0
+    },
+    "ops": {
+      "fusible_in_partition": {
+        "aten.index.Tensor": 1,
+        "aten.mul.Tensor": 1,
+        "aten.reshape.default": 2,
+        "aten.sum.dim_IntList": 1,
+        "aten.unsqueeze.default": 1,
+        "prims.convert_element_type.default": 2
+      },
+      "fusible_unpartitioned": {},
+      "non_fusible": {}
+    }
+  },
+  "replay_dependencies": {
+    "schema_version": 1
+  },
+  "roundtrip": "ok"
+}

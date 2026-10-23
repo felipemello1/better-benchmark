@@ -1,0 +1,20 @@
+{
+  "pattern_hash": "d5136f6eb062",
+  "kind": "pointwise",
+  "reduction_types": [],
+  "n_ops": 7,
+  "origin_ops": [
+    "aten.expand.default",
+    "aten.full.default",
+    "aten.index_put.default",
+    "aten.reshape.default",
+    "aten.unsqueeze.default",
+    "prims.convert_element_type.default",
+    "prims.convert_element_type.default"
+  ],
+  "n_models": 2,
+  "models": [
+    "genai/train/torchtitan_moe_dispatch_bwd_sum_k16_d7168",
+    "genai/train/torchtitan_moe_dispatch_bwd_sum_k8_d4096"
+  ]
+}
