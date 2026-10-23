@@ -1,0 +1,64 @@
+{
+  "points": [
+    {
+      "shape_hash": "f65ccca0",
+      "models": {
+        "genai/train/torchtitan_llama3_8b_interleaved_rope": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[16384,32,128],"bf16"],
+        [[16384,1,64],"f32"],
+        [[16384,1,64],"f32"],
+        ["S",[16384,32,64,2]],
+        ["S",[16384,32,128]]
+      ]
+    },
+    {
+      "shape_hash": "eca35424",
+      "models": {
+        "genai/train/torchtitan_llama3_8b_interleaved_rope": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[4096,32,128],"bf16"],
+        [[4096,1,64],"f32"],
+        [[4096,1,64],"f32"],
+        ["S",[4096,32,64,2]],
+        ["S",[4096,32,128]]
+      ]
+    },
+    {
+      "shape_hash": "491cfff1",
+      "models": {
+        "genai/train/torchtitan_muse_spark_interleaved_rope": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[16384,128,64],"bf16"],
+        [[16384,1,32],"f32"],
+        [[16384,1,32],"f32"],
+        ["S",[16384,128,32,2]],
+        ["S",[16384,128,64]]
+      ]
+    },
+    {
+      "shape_hash": "faf5925d",
+      "models": {
+        "genai/train/torchtitan_muse_spark_interleaved_rope": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[4096,128,64],"bf16"],
+        [[4096,1,32],"f32"],
+        [[4096,1,32],"f32"],
+        ["S",[4096,128,32,2]],
+        ["S",[4096,128,64]]
+      ]
+    }
+  ]
+}

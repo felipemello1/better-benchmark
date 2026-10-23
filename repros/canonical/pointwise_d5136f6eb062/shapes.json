@@ -1,0 +1,64 @@
+{
+  "points": [
+    {
+      "shape_hash": "45ce74cd",
+      "models": {
+        "genai/train/torchtitan_moe_dispatch_bwd_sum_k8_d4096": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[16384,4096],"bf16"],
+        [[131072],"i64",{"gen":["perm",131072]}],
+        ["S",[16384,8,4096]],
+        ["S",[131072,4096]],
+        ["S",[131072,4096]]
+      ]
+    },
+    {
+      "shape_hash": "54a559fa",
+      "models": {
+        "genai/train/torchtitan_moe_dispatch_bwd_sum_k8_d4096": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[4096,4096],"bf16"],
+        [[32768],"i64",{"gen":["perm",32768]}],
+        ["S",[4096,8,4096]],
+        ["S",[32768,4096]],
+        ["S",[32768,4096]]
+      ]
+    },
+    {
+      "shape_hash": "eba2da32",
+      "models": {
+        "genai/train/torchtitan_moe_dispatch_bwd_sum_k16_d7168": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[16384,7168],"bf16"],
+        [[262144],"i64",{"gen":["perm",262144]}],
+        ["S",[16384,16,7168]],
+        ["S",[262144,7168]],
+        ["S",[262144,7168]]
+      ]
+    },
+    {
+      "shape_hash": "ea9fad91",
+      "models": {
+        "genai/train/torchtitan_moe_dispatch_bwd_sum_k16_d7168": {
+          "occurrences": 1
+        }
+      },
+      "inputs": [
+        [[4096,7168],"bf16"],
+        [[65536],"i64",{"gen":["perm",65536]}],
+        ["S",[4096,16,7168]],
+        ["S",[65536,7168]],
+        ["S",[65536,7168]]
+      ]
+    }
+  ]
+}

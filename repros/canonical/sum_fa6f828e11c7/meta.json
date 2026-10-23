@@ -1,0 +1,32 @@
+{
+  "pattern_hash": "fa6f828e11c7",
+  "kind": "reduction",
+  "numerics_optout": {
+    "verified": true,
+    "reason": "Accumulation order, 1 bf16 ulp. The oracle is Inductor's unrolled kernel (unroll_reductions_threshold=K+1), bitwise equal to it under both pointwise configs, and sums k = 0..K-1 in order. The fp64 gate's reference keeps the graph's hard-coded fp32/bf16 casts, so it is eager's fp32 sum: a sum of K bf16 values is almost always exact in fp32, and eager's order differs from a sequential sum in 0-1 elements per input sample. Where that element rounds 1 bf16 ulp away while compiled matches eager (err_compiled ~0, so the threshold collapses to 1e-5 * absmax) or compiled's own flip lands on a smaller element, the gate fails; which points fail depends on the input sample. --check vs eager passes at every point.",
+    "max_diff": 0.015625,
+    "ref_absmax": 23.75,
+    "outputs": [
+      0
+    ],
+    "evidence": "oracle_harness fp64 gate (compiled with coordinate descent), GB300, 2026-10-23. Permutation idx, input seeds 0-4 per point: fails at 98bf585f (2 of 5 seeds), 2776a494 (1 of 5), err_oracle <= 0.015625 vs err_compiled <= 0.0039; passes at the other points. Uniform idx with replacement (first capture): 124333ae failed in 3 of 3 --bench runs (0.015625 vs 7.6e-6).",
+    "reviewed": "2026-10-23"
+  },
+  "reduction_types": [
+    "sum"
+  ],
+  "n_ops": 6,
+  "origin_ops": [
+    "aten.index.Tensor",
+    "aten.reshape.default",
+    "aten.reshape.default",
+    "aten.sum.dim_IntList",
+    "prims.convert_element_type.default",
+    "prims.convert_element_type.default"
+  ],
+  "n_models": 2,
+  "models": [
+    "genai/infer/torchtitan_moe_dispatch_bwd_sum_k16_d7168",
+    "genai/infer/torchtitan_moe_dispatch_bwd_sum_k8_d4096"
+  ]
+}

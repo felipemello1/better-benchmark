@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "genai",
+  "model": "torchtitan_moe_dispatch_bwd_sum_k16_d7168",
+  "patterns": [
+    "fa6f828e11c7"
+  ],
+  "graphs": [
+    "full_graph_000.py",
+    "full_graph_001.py",
+    "full_graph_002.py"
+  ],
+  "graph_metadata": {
+    "full_graph_000.py": "full_graph_000.meta.json",
+    "full_graph_001.py": "full_graph_001.meta.json",
+    "full_graph_002.py": "full_graph_002.meta.json"
+  },
+  "mode": "infer"
+}

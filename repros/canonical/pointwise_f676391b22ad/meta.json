@@ -1,0 +1,32 @@
+{
+  "pattern_hash": "f676391b22ad",
+  "kind": "pointwise",
+  "reduction_types": [],
+  "n_ops": 17,
+  "origin_ops": [
+    "<built-in function getitem>",
+    "<built-in function getitem>",
+    "aten.add.Tensor",
+    "aten.cat.default",
+    "aten.mul.Tensor",
+    "aten.mul.Tensor",
+    "aten.mul.Tensor",
+    "aten.mul.Tensor",
+    "aten.reshape.default",
+    "aten.reshape.default",
+    "aten.sub.Tensor",
+    "aten.unbind.int",
+    "aten.unsqueeze.default",
+    "aten.unsqueeze.default",
+    "prims.convert_element_type.default",
+    "prims.convert_element_type.default",
+    "prims.convert_element_type.default"
+  ],
+  "n_models": 4,
+  "models": [
+    "genai/infer/torchtitan_llama3_8b_interleaved_rope",
+    "genai/infer/torchtitan_muse_spark_interleaved_rope",
+    "genai/train/torchtitan_llama3_8b_interleaved_rope",
+    "genai/train/torchtitan_muse_spark_interleaved_rope"
+  ]
+}

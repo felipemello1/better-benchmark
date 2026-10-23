@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "inputs": [
+    [[4096,1,32],"f32",{"n":"primals_2"}],
+    [[4096,1,32],"f32",{"n":"primals_3"}],
+    [[4096,128,64],"bf16",{"n":"tangents_1"}]
+  ],
+  "outputs": [
+    [[4096,128,64],"bf16",{"n":"output_0"}]
+  ],
+  "tensor_attrs": {},
+  "graph": "full_graph_003.py",
+  "source": {
+    "kind": "microbenchmark",
+    "suite": "genai",
+    "mode": "train",
+    "model": "torchtitan_muse_spark_interleaved_rope",
+    "graph": "full_graph_003.py"
+  },
+  "node_accounting": {
+    "total_call_functions": 17,
+    "counts": {
+      "fusible_in_partition": 17,
+      "fusible_unpartitioned": 0,
+      "non_fusible": 0
+    },
+    "ops": {
+      "fusible_in_partition": {
+        "aten.add.Tensor": 2,
+        "aten.cat.default": 1,
+        "aten.mul.Tensor": 4,
+        "aten.neg.default": 1,
+        "aten.reshape.default": 2,
+        "aten.select.int": 2,
+        "aten.unsqueeze.default": 2,
+        "prims.convert_element_type.default": 3
+      },
+      "fusible_unpartitioned": {},
+      "non_fusible": {}
+    }
+  },
+  "replay_dependencies": {
+    "schema_version": 1
+  },
+  "roundtrip": "ok"
+}

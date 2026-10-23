@@ -1,0 +1,34 @@
+{
+  "pattern_hash": "84128a2b836e",
+  "kind": "reduction",
+  "numerics_optout": {
+    "verified": true,
+    "reason": "Sparse 1-ulp bf16 flips. The oracle is Inductor's unrolled kernel (unroll_reductions_threshold=K+1), bitwise equal to it under both pointwise configs. The fp64 gate's reference here is the correctly rounded bf16 of the exact sum (the f32 scores become f64, so the product is f64). Both the oracle and compiled accumulate in fp32 and round a few elements 1 ulp away. At T=64 the max error comes from one or two such elements, so the ratio swings either way across seeds (4679554f: 0.03125 vs 0.0078, and 0.00195 vs 0.03125). --check vs eager passes at every point.",
+    "max_diff": 0.03125,
+    "ref_absmax": 18.375,
+    "outputs": [
+      0
+    ],
+    "evidence": "oracle_harness fp64 gate (compiled with coordinate descent), GB300, 2026-10-23. Permutation idx, input seeds 0-4 per point: fails at 4679554f in 2 of 5 seeds (err_oracle 0.03125 vs err_compiled 0.0078; 0.0078 vs 0.002), passes at the other 5 points; bench_parallel --oracles also failed 4679554f and ca614918 once. Re-run at 4679554f, seeds 0-4 (err_oracle / err_compiled / ref_absmax): 0.0078/0.0078/21.4, 0.03125/0.00195/18.4 (fails), 0.0156/0.0078/17.8, 0.00195/0.03125/16.6, 0.0078/0.0078/20.4.",
+    "reviewed": "2026-10-23"
+  },
+  "reduction_types": [
+    "sum"
+  ],
+  "n_ops": 8,
+  "origin_ops": [
+    "aten.index.Tensor",
+    "aten.mul.Tensor",
+    "aten.reshape.default",
+    "aten.reshape.default",
+    "aten.sum.dim_IntList",
+    "aten.unsqueeze.default",
+    "prims.convert_element_type.default",
+    "prims.convert_element_type.default"
+  ],
+  "n_models": 2,
+  "models": [
+    "genai/infer/torchtitan_moe_gather_combine_k16_d7168",
+    "genai/infer/torchtitan_moe_gather_combine_k8_d4096"
+  ]
+}

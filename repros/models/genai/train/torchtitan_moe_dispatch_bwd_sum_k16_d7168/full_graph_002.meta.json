@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "inputs": [
+    [[4096,16],"i64",{"n":"primals_1","gen":["index",0,65536],"x":{"constraint_source":"graph_inference","observed":{"min":0,"max":65535,"n_unique":65536,"numel":65536,"sorted":false,"n_runs":65536}}}],
+    [[65536,7168],"bf16",{"n":"primals_2"}]
+  ],
+  "outputs": [
+    [[4096,7168],"bf16",{"n":"output_0"}],
+    [[65536],"i64",{"n":"output_1","gen":["index",0,65536],"x":{"constraint_source":"dtype_shape_default"}}]
+  ],
+  "tensor_attrs": {},
+  "graph": "full_graph_002.py",
+  "source": {
+    "kind": "microbenchmark",
+    "suite": "genai",
+    "mode": "train",
+    "model": "torchtitan_moe_dispatch_bwd_sum_k16_d7168",
+    "graph": "full_graph_002.py"
+  },
+  "node_accounting": {
+    "total_call_functions": 6,
+    "counts": {
+      "fusible_in_partition": 6,
+      "fusible_unpartitioned": 0,
+      "non_fusible": 0
+    },
+    "ops": {
+      "fusible_in_partition": {
+        "aten.index.Tensor": 1,
+        "aten.reshape.default": 2,
+        "aten.sum.dim_IntList": 1,
+        "prims.convert_element_type.default": 2
+      },
+      "fusible_unpartitioned": {},
+      "non_fusible": {}
+    }
+  },
+  "replay_dependencies": {
+    "schema_version": 1
+  },
+  "roundtrip": "ok"
+}
